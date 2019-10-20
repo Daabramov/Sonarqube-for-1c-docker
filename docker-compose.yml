@@ -1,0 +1,43 @@
+version: "2"
+services:
+  sonar:
+    image: sonarfor1c:8.0-ce-beta
+    ports:
+      - "32772:9000"
+    ulimits:
+     nofile:
+      soft: 65535
+      hard: 65535 
+    networks:
+      - sonarnetwork
+    environment:
+      - sonar.jdbc.url=jdbc:postgresql://postgresql:5432/sonar
+      - sonar.web.javaOpts=-server -Xmx2g -Xms1g -XX:+HeapDumpOnOutOfMemoryError
+      - sonar.ce.javaOpts=-Xmx6g -Xms4g -XX:+HeapDumpOnOutOfMemoryError
+      - sonar.search.javaOpts=-Xms5g -Xmx5g -XX:+HeapDumpOnOutOfMemoryError
+      - SONARQUBE_JDBC_USERNAME=sonar
+      - SONARQUBE_JDBC_PASSWORD=sonar
+    volumes:
+      - sonarqube_conf:/opt/sonarqube/conf
+      - sonarqube_data:/opt/sonarqube/data
+      - sonarqube_extensions:/opt/sonarqube/extensions
+
+  postgresql:
+    image: postgres
+    networks:
+      - sonarnetwork
+    environment:
+      - POSTGRES_USER=sonar
+      - POSTGRES_PASSWORD=sonar
+    volumes:
+      - postgresql:/var/lib/postgresql
+      - postgresql_data:/var/lib/postgresql/data
+networks:
+  sonarnetwork:
+    driver: bridge
+volumes:
+  sonarqube_conf:
+  sonarqube_data:
+  sonarqube_extensions:
+  postgresql:
+  postgresql_data:
