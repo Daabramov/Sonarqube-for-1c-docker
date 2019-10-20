@@ -1,7 +1,7 @@
 version: "2"
 services:
   sonar:
-    image: sonarfor1c:8.0-ce-beta
+    image: daabramov/sonarfor1c:8.0-ce-beta
     ports:
       - "32772:9000"
     ulimits:
