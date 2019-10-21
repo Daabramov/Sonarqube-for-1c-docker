@@ -1,5 +1,15 @@
 version: "2"
 services:
+  postgresql:
+    image: postgres
+    networks:
+      - sonarnetwork
+    environment:
+      - POSTGRES_USER=sonar
+      - POSTGRES_PASSWORD=sonar
+    volumes:
+      - postgresql:/var/lib/postgresql
+      - postgresql_data:/var/lib/postgresql/data
   sonar:
     image: daabramov/sonarfor1c:8.0-ce-beta
     ports:
@@ -21,17 +31,6 @@ services:
       - sonarqube_conf:/opt/sonarqube/conf
       - sonarqube_data:/opt/sonarqube/data
       - sonarqube_extensions:/opt/sonarqube/extensions
-
-  postgresql:
-    image: postgres
-    networks:
-      - sonarnetwork
-    environment:
-      - POSTGRES_USER=sonar
-      - POSTGRES_PASSWORD=sonar
-    volumes:
-      - postgresql:/var/lib/postgresql
-      - postgresql_data:/var/lib/postgresql/data
 networks:
   sonarnetwork:
     driver: bridge
