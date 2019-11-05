@@ -14,6 +14,8 @@ services:
     image: daabramov/sonarfor1c:8.0-ce-beta
     ports:
       - "32772:9000"
+    depends_on:
+      - postgresql
     ulimits:
      nofile:
       soft: 65535
@@ -22,9 +24,9 @@ services:
       - sonarnetwork
     environment:
       - sonar.jdbc.url=jdbc:postgresql://postgresql:5432/sonar
-      - sonar.web.javaOpts=-server -Xmx2g -Xms1g -XX:+HeapDumpOnOutOfMemoryError
-      - sonar.ce.javaOpts=-Xmx6g -Xms4g -XX:+HeapDumpOnOutOfMemoryError
-      - sonar.search.javaOpts=-Xms5g -Xmx5g -XX:+HeapDumpOnOutOfMemoryError
+      - sonar.web.javaOpts=-server -Xmx1g -Xms2g -XX:+HeapDumpOnOutOfMemoryError
+      - sonar.ce.javaOpts=-Xmx4g -Xms4g -XX:+HeapDumpOnOutOfMemoryError
+      - sonar.search.javaOpts=-Xms2g -Xmx2g -XX:+HeapDumpOnOutOfMemoryError
       - SONARQUBE_JDBC_USERNAME=sonar
       - SONARQUBE_JDBC_PASSWORD=sonar
     volumes:
