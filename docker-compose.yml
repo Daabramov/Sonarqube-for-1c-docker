@@ -24,8 +24,8 @@ services:
       - sonarnetwork
     environment:
       - sonar.jdbc.url=jdbc:postgresql://postgresql:5432/sonar
-      - sonar.web.javaOpts=-server -Xmx1g -Xms2g -XX:+HeapDumpOnOutOfMemoryError
-      - sonar.ce.javaOpts=-Xmx4g -Xms4g -XX:+HeapDumpOnOutOfMemoryError
+      - sonar.web.javaOpts=-server -Xms1g -Xmx2g -XX:+HeapDumpOnOutOfMemoryError
+      - sonar.ce.javaOpts=-Xms4g -Xmx4g -XX:+HeapDumpOnOutOfMemoryError
       - sonar.search.javaOpts=-Xms2g -Xmx2g -XX:+HeapDumpOnOutOfMemoryError
       - SONARQUBE_JDBC_USERNAME=sonar
       - SONARQUBE_JDBC_PASSWORD=sonar
