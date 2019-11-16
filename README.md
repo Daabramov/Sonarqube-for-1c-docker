@@ -11,13 +11,16 @@ Dockerfile и docker compose для Sonarqube 8 под 1C-Enterprise
 
 ## Установка
 Самый простой способ установить через докер компоуз файл. Образ будет взят с хаба (8.0-ce-beta)
+
 ```docker-compose up -d```
 
 Если хотите использовать версию 7.9.1, то:
 1. Необходимо собрать образ из соответствующего докерфайла
 ```docker image build mysonarimage```
+
 2. В docker-compose.yml заменить 
-```image: daabramov/sonarfor1c:8.0-ce-beta``` на ```mysonarimage```
+```image: daabramov/sonarfor1c:8.0-ce-beta``` на ```image: mysonarimage```
+
 3. Поднимаем через компоуз (см верх)
 
 # ВНИМАНИЕ
