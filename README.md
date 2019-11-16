@@ -10,7 +10,7 @@ Dockerfile и docker compose для Sonarqube 8 под 1C-Enterprise
 4. Сразу установлен плагин под 1с ([Ссылка на репо](https://github.com/1c-syntax/sonar-bsl-plugin-community "Ссылка на репо")) 
 
 ## Установка
-Самый простой способ установить через докер компоуз файл. Образ будет взят с хаба (8.0-ce-beta)
+Самый простой способ установить через докер компоуз. Образ будет взят с хаба (8.0-ce-beta)
 
 ```docker-compose up -d```
 
