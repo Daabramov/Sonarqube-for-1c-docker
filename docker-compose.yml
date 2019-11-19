@@ -1,6 +1,7 @@
 version: "2"
 services:
   postgresql:
+    restart: always
     image: postgres
     networks:
       - sonarnetwork
@@ -11,6 +12,7 @@ services:
       - postgresql:/var/lib/postgresql
       - postgresql_data:/var/lib/postgresql/data
   sonar:
+    restart: always
     image: daabramov/sonarfor1c:8.0-ce-beta
     ports:
       - "32772:9000"
