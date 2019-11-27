@@ -21,10 +21,10 @@ RUN cd /opt/sq/ \
 
 RUN cd /opt/sq/ \
     && curl -o "$SONAR_BRANCH_PLUGIN_FILENAME" -fsSL "$SONAR_BRANCH_PLUGIN_JAR" \
-    && mkdir -p extensions/downloads \
-    && cp -f "$SONAR_BRANCH_PLUGIN_FILENAME" extensions/downloads \
+    && mkdir -p extensions/plugins \
+    && cp -f "$SONAR_BRANCH_PLUGIN_FILENAME" extensions/plugins \
     && cp -f "$SONAR_BRANCH_PLUGIN_FILENAME" lib/common \
-    && chown sonarqube:sonarqube "extensions/downloads/$SONAR_BRANCH_PLUGIN_FILENAME" \
+    && chown sonarqube:sonarqube "extensions/plugins/$SONAR_BRANCH_PLUGIN_FILENAME" \
     && chown sonarqube:sonarqube "lib/common/$SONAR_BRANCH_PLUGIN_FILENAME" \
     && rm "$SONAR_BRANCH_PLUGIN_FILENAME"
 
