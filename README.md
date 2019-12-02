@@ -8,6 +8,7 @@ Dockerfile и docker compose для Sonarqube 8 под 1C-Enterprise
 2. Установлены параметры javaOpts под web, core engine и search под 1с (выше стандартных)
 3. Установлен выше параметр ulimits (Для эластика)
 4. Сразу установлен плагин под 1с ([Ссылка на репо](https://github.com/1c-syntax/sonar-bsl-plugin-community "Ссылка на репо")) 
+5. Установлен branch плагин ([Ссылка на репо](https://github.com/mc1arke/sonarqube-community-branch-plugin "Ссылка на репо")) 
 
 ## Установка
 Самый простой способ установить через докер компоуз. Образ будет взят с хаба (8.0-ce-beta)
