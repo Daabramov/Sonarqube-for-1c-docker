@@ -1,7 +1,7 @@
 FROM sonarqube:8.0-community-beta
 ARG BSL_PLUGIN_VERSION=1.4.2
 ARG SONAR_LP_VERSION=0.0.2
-ARG SONAR_BRANCH_PLUGIN_VERSION=1.2.0
+ARG SONAR_BRANCH_PLUGIN_VERSION=1.3.0
 
 ENV PLUGIN=https://github.com/1c-syntax/sonar-bsl-plugin-community/releases/download/v${BSL_PLUGIN_VERSION}/sonar-communitybsl-plugin-${BSL_PLUGIN_VERSION}.jar \
     PLUGIN_NAME=sonar-communitybsl-plugin-${BSL_PLUGIN_VERSION}.jar	\ 
