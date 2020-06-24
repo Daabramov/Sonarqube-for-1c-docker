@@ -1,28 +1,40 @@
 # Sonarqube-for-1c-docker
 Dockerfile и docker compose для Sonarqube 8 под 1C-Enterprise
-Репозиторий содержит докерфайлы для версий 7.9.1 LTS и 8.0-ce-beta
+Репозиторий содержит докерфайл для версии 8-community.
+Версия sonarqube выше 8 версии пока не поддерживается из-за отсутствия sonarqube-community-branch-plugin подходящей версии
 
 
 ## Что изменено
 1. Добавлены длинные пути файлов ([Спасибо](https://github.com/asosnoviy/sonarqube "Спасибо") @asosnoviy)
-2. Установлены параметры javaOpts под web, core engine и search под 1с (выше стандартных)
-3. Установлен выше параметр ulimits (Для эластика)
-4. Сразу установлен плагин под 1с ([Ссылка на репо](https://github.com/1c-syntax/sonar-bsl-plugin-community "Ссылка на репо")) 
-5. Установлен branch плагин ([Ссылка на репо](https://github.com/mc1arke/sonarqube-community-branch-plugin "Ссылка на репо")) 
+2. Установлены параметры javaOpts под web, core engine и search под 1с
+3. Установлен параметр ulimits (Для эластика)
+4. Установлен sonar-bsl-plugin-community ([Ссылка на репо](https://github.com/1c-syntax/sonar-bsl-plugin-community "Ссылка на репо")) 
+5. Установлен sonarqube-community-branch-plugin ([Ссылка на репо](https://github.com/mc1arke/sonarqube-community-branch-plugin "Ссылка на репо")) 
+
+## Версии плагинов:
+sonar-bsl-plugin-community - 1.6.1
+sonarqube-community-branch-plugin - 1.3.1
 
 ## Установка
-Самый простой способ установить через докер компоуз. Образ будет взят с хаба (8.0-ce-beta)
+Самый простой способ установить через докер компоуз. Образ будет взят с хаба (8-community)
 
 ```docker-compose up -d```
 
-Если хотите использовать версию 7.9.1, то:
-1. Необходимо собрать образ из соответствующего докерфайла
-```docker image build mysonarimage```
+Если хотите использовать другую версию sonarqube, то:
+1. Соберите свой докерфайл на основании текущего.
+В шапке докерфайла можно указать необходимые вам версии sonarqube и плагинов.
 
-2. В docker-compose.yml заменить 
-```image: daabramov/sonarfor1c:8.0-ce-beta``` на ```image: mysonarimage```
+2. Соберите образ из вашего докерфайла на основании текущего.
 
-3. Поднимаем через компоуз (см верх)
+```docker image build -t mysonarimage -f .\.Dockerfile .```
+
+3. В docker-compose.yml заменить 
+```image: daabramov/sonarfor1c:8-community``` на ```image: mysonarimage```
+
+4. Запускаем через компоуз
+
+```docker-compose up -d```
 
 # ВНИМАНИЕ
-Для удачного развертывания необходимо не меньше 6гб сводобной памяти на хосте, можно контролировать параметрами -Xmx и -Xms
+Для удачного развертывания необходимо не меньше 6гб сводобной памяти на хосте.
+Общий объем можно контролировать параметрами -Xmx и -Xms в compose
