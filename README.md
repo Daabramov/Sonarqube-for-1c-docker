@@ -12,7 +12,9 @@ Dockerfile и docker compose для Sonarqube 8 под 1C-Enterprise
 5. Установлен sonarqube-community-branch-plugin ([Ссылка на репо](https://github.com/mc1arke/sonarqube-community-branch-plugin "Ссылка на репо")) 
 
 ## Версии плагинов:
+
 sonar-bsl-plugin-community - 1.6.1
+
 sonarqube-community-branch-plugin - 1.3.1
 
 ## Установка
@@ -22,6 +24,7 @@ sonarqube-community-branch-plugin - 1.3.1
 
 Если хотите использовать другую версию sonarqube, то:
 1. Соберите свой докерфайл на основании текущего.
+
 В шапке докерфайла можно указать необходимые вам версии sonarqube и плагинов.
 
 2. Соберите образ из вашего докерфайла на основании текущего.
