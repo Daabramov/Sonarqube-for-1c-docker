@@ -17,10 +17,13 @@ RUN git clone https://github.com/mc1arke/sonarqube-community-branch-plugin --bra
 
 FROM sonarqube:8.3.1-community
 
+ARG BSL_PLUGIN_VERSION=1.6.1
 ARG SONAR_LP_VERSION=8.3.1
 ARG SONAR_BRANCH_PLUGIN_VERSION=1.2.0
 
-ENV WEB_ZIP=https://github.com/asosnoviy/sonarqube/releases/download/LP${SONAR_LP_VERSION}/webapp.zip
+ENV PLUGIN=https://github.com/1c-syntax/sonar-bsl-plugin-community/releases/download/v${BSL_PLUGIN_VERSION}/sonar-communitybsl-plugin-${BSL_PLUGIN_VERSION}.jar \
+    PLUGIN_NAME=sonar-communitybsl-plugin-${BSL_PLUGIN_VERSION}.jar \ 
+    WEB_ZIP=https://github.com/asosnoviy/sonarqube/releases/download/LP${SONAR_LP_VERSION}/webapp.zip
 
 USER root
 
@@ -32,10 +35,12 @@ RUN apk add --no-cache \
 	&& rm -rf /var/cache/apk/*
 
 RUN curl -o webapp.zip -fsSL "$WEB_ZIP" \
-	&& unzip -q webapp.zip \
+    && unzip -q webapp.zip \
     && cp -f -r webapp/* web/ \
     && rm -r webapp \
-    && rm webapp.zip
+    && rm webapp.zip \
+    && curl -o "$PLUGIN_NAME" -fsSL "$PLUGIN" \
+    && mv -f "$PLUGIN_NAME" extensions/plugins/
 
 RUN mkdir -p extensions/downloads
 
