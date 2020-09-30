@@ -2,7 +2,7 @@ FROM adoptopenjdk:11-jdk-hotspot as builder
 
 WORKDIR /tmp
 
-ARG SONAR_BRANCH_PLUGIN_BRANCH=sq-8_2-support
+ARG SONAR_BRANCH_PLUGIN_BRANCH=master
 
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
@@ -13,13 +13,12 @@ RUN apt-get update \
 
 RUN git clone https://github.com/mc1arke/sonarqube-community-branch-plugin --branch ${SONAR_BRANCH_PLUGIN_BRANCH} \
     && cd sonarqube-community-branch-plugin \
-    && ./gradlew build
+    && ./gradlew clean build
 
 FROM sonarqube:8.3.1-community
 
-ARG BSL_PLUGIN_VERSION=1.6.1
+ARG BSL_PLUGIN_VERSION=1.7.0
 ARG SONAR_LP_VERSION=8.3.1
-ARG SONAR_BRANCH_PLUGIN_VERSION=1.2.0
 
 ENV PLUGIN=https://github.com/1c-syntax/sonar-bsl-plugin-community/releases/download/v${BSL_PLUGIN_VERSION}/sonar-communitybsl-plugin-${BSL_PLUGIN_VERSION}.jar \
     PLUGIN_NAME=sonar-communitybsl-plugin-${BSL_PLUGIN_VERSION}.jar \ 

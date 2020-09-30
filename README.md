@@ -29,7 +29,7 @@ sonarqube-community-branch-plugin - 1.3.1
 
 2. Соберите образ из вашего докерфайла на основании текущего.
 
-```docker image build -t mysonarimage -f .\.Dockerfile .```
+```docker image build -t mysonarimage -f .\8.3.1-community.Dockerfile .```
 
 3. В docker-compose.yml заменить 
 ```image: daabramov/sonarfor1c:8-community``` на ```image: mysonarimage```
@@ -41,3 +41,16 @@ sonarqube-community-branch-plugin - 1.3.1
 ## ВНИМАНИЕ
 Для удачного развертывания необходимо не меньше 6гб сводобной памяти на хосте.
 Общий объем можно контролировать параметрами -Xmx и -Xms в compose
+
+## Известные ошибки
+1. При работе Docker в ОС Windows на базе WSL2 при старте контейнера может появится ошибка:
+```vm.max_map_count 65530 is too low```
+
+Для решение проблемы необходимо:
+- Остановить Docker Desktop
+- Зайти в консоль (cmd, powershell)
+- Выполнить следующие команды:
+```wsl -d docker-desktop```
+```sysctl -w vm.max_map_count=262144```
+```wsl --shutdown```
+- Запустить Docker Desktop
