@@ -50,7 +50,11 @@ sonarqube-community-branch-plugin - 1.4.1
 - Остановить Docker Desktop
 - Зайти в консоль (cmd, powershell)
 - Выполнить следующие команды:
+
 ```wsl -d docker-desktop```
+
 ```sysctl -w vm.max_map_count=262144```
+
 ```wsl --shutdown```
+
 - Запустить Docker Desktop
