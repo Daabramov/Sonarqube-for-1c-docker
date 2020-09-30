@@ -14,6 +14,7 @@ Dockerfile и docker compose для Sonarqube 8 под 1C-Enterprise
 ## Версии плагинов:
 
 sonar-bsl-plugin-community - 1.7.0
+
 sonarqube-community-branch-plugin - 1.4.1
 
 ## Установка
