@@ -1,7 +1,7 @@
 # Sonarqube-for-1c-docker
 Dockerfile и docker compose для Sonarqube 8 под 1C-Enterprise
-Репозиторий содержит докерфайл для версии 8-community.
-Версия sonarqube выше 8 версии пока не поддерживается из-за отсутствия sonarqube-community-branch-plugin подходящей версии
+Репозиторий содержит докерфайл для версии 8-community до версии 8.3.1 включительно
+Версия sonarqube выше версии 8.3.1 пока не поддерживается из-за отсутствия sonarqube-community-branch-plugin подходящей версии
 
 
 ## Что изменено
