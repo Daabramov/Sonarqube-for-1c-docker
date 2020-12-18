@@ -1,7 +1,7 @@
 # Sonarqube-for-1c-docker
 
 Dockerfile и docker compose для Sonarqube 8 под 1C-Enterprise
-Репозиторий содержит докерфайл для версии 8-community до версии 8.4.1 включительно
+Репозиторий содержит докерфайл для версии 8-community до версии 8.5.1 включительно
 Версия sonarqube выше версии 8.5.1 пока не поддерживается из-за отсутствия sonarqube-community-branch-plugin подходящей версии
 
 ## Что изменено
@@ -10,17 +10,16 @@ Dockerfile и docker compose для Sonarqube 8 под 1C-Enterprise
 2. Установлены параметры javaOpts под web, core engine и search под 1с
 3. Установлен параметр ulimits (Для эластика)
 4. Установлен sonar-bsl-plugin-community ([Ссылка на репо](https://github.com/1c-syntax/sonar-bsl-plugin-community "Ссылка на репо"))
-5. Добавлены длинные пути файлов ([Спасибо](https://github.com/asosnoviy/sonarqube "Спасибо") @asosnoviy). С версии 8.4 более не требуется и было убрано.
 
 ## Версии плагинов
 
-sonar-bsl-plugin-community - 1.7.0
+sonar-bsl-plugin-community - 1.8.1
 
-sonarqube-community-branch-plugin - 1.5.0
+sonarqube-community-branch-plugin - 1.6.0
 
 ## Установка
 
-Самый простой способ установить через докер компоуз. Образ будет взят с хаба (8.4.1-community)
+Самый простой способ установить через докер компоуз. Образ будет взят с хаба (8.5.1-community)
 
 ```docker-compose up -d```
 
@@ -29,9 +28,9 @@ sonarqube-community-branch-plugin - 1.5.0
 1. Соберите свой докерфайл на основании текущего
 В шапке докерфайла можно указать необходимые вам версии sonarqube и плагинов.
 2. Соберите образ из вашего докерфайла на основании текущего.
-```docker image build -t mysonarimage -f .\8.4.1-community.Dockerfile .```
+```docker image build -t mysonarimage -f .\8.5.1-community.Dockerfile .```
 3. В docker-compose.yml заменить
-```image: daabramov/sonarfor1c:8.4.1-community``` на ```image: mysonarimage```
+```image: daabramov/sonarfor1c:8.5.1-community``` на ```image: mysonarimage```
 4. Запускаем через компоуз
 ```docker-compose up -d```
 
