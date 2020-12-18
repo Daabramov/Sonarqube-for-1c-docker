@@ -17,7 +17,7 @@ RUN git clone https://github.com/mc1arke/sonarqube-community-branch-plugin --bra
 
 FROM sonarqube:8.4.1-community
 
-ARG BSL_PLUGIN_VERSION=1.7.0
+ARG BSL_PLUGIN_VERSION=1.8.1
 
 ENV PLUGIN=https://github.com/1c-syntax/sonar-bsl-plugin-community/releases/download/v${BSL_PLUGIN_VERSION}/sonar-communitybsl-plugin-${BSL_PLUGIN_VERSION}.jar \
     PLUGIN_NAME=sonar-communitybsl-plugin-${BSL_PLUGIN_VERSION}.jar
