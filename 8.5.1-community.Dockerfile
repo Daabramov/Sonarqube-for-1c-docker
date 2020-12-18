@@ -15,7 +15,7 @@ RUN git clone https://github.com/mc1arke/sonarqube-community-branch-plugin --bra
     && cd sonarqube-community-branch-plugin \
     && ./gradlew clean build
 
-FROM sonarqube:8.4.1-community
+FROM sonarqube:8.5.1-community
 
 ARG BSL_PLUGIN_VERSION=1.8.1
 
