@@ -1,20 +1,19 @@
-FROM mc1arke/sonarqube-with-community-branch-plugin:lts
+FROM sonarqube:8.9.0-community
 
+ARG RUSSIAN_PACK=8.9
+ARG BRANCH_PLUGIN_VERSION=1.8.0
 ARG BSL_PLUGIN_VERSION=1.9.0
-
-ENV PLUGIN=https://github.com/1c-syntax/sonar-bsl-plugin-community/releases/download/v${BSL_PLUGIN_VERSION}/sonar-communitybsl-plugin-${BSL_PLUGIN_VERSION}.jar \
-    PLUGIN_NAME=sonar-communitybsl-plugin-${BSL_PLUGIN_VERSION}.jar
 
 USER root
 
 WORKDIR /opt/sonarqube
 
-RUN apk add --no-cache \ 
-    curl \
-    unzip \
-	&& rm -rf /var/cache/apk/*
+# plugins
+ADD --chown=sonarqube:sonarqube https://github.com/1c-syntax/sonar-l10n-ru/releases/download/v${RUSSIAN_PACK}/sonar-l10n-ru-plugin-${RUSSIAN_PACK}.jar extensions/plugins
+ADD --chown=sonarqube:sonarqube https://github.com/1c-syntax/sonar-bsl-plugin-community/releases/download/v${BSL_PLUGIN_VERSION}/sonar-communitybsl-plugin-${BSL_PLUGIN_VERSION}.jar extensions/plugins
 
-RUN curl -o "$PLUGIN_NAME" -fsSL "$PLUGIN" \
-    && mv -f "$PLUGIN_NAME" extensions/plugins/
+ADD --chown=sonarqube:sonarqube https://github.com/mc1arke/sonarqube-community-branch-plugin/releases/download/${BRANCH_PLUGIN_VERSION}/sonarqube-community-branch-plugin-${BRANCH_PLUGIN_VERSION}.jar extensions/plugins
+ENV SONAR_WEB_JAVAADDITIONALOPTS=-javaagent:./extensions/plugins/sonarqube-community-branch-plugin-${BRANCH_PLUGIN_VERSION}.jar=web
+ENV SONAR_CE_JAVAADDITIONALOPTS=-javaagent:./extensions/plugins/sonarqube-community-branch-plugin-${BRANCH_PLUGIN_VERSION}.jar=ce
 
 USER sonarqube
