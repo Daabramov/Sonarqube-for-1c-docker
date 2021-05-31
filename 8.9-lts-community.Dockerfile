@@ -1,4 +1,4 @@
-FROM sonarqube:8.9.0-community
+FROM sonarqube:lts-community
 
 ARG RUSSIAN_PACK=8.9
 ARG BRANCH_PLUGIN_VERSION=1.8.0
