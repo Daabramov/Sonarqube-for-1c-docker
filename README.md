@@ -10,6 +10,7 @@ Dockerfile и docker compose для Sonarqube 8 под 1C-Enterprise
 2. Установлены параметры javaOpts под web, core engine и search под 1с
 3. Установлен параметр ulimits (Для эластика)
 4. Установлен sonar-bsl-plugin-community ([Ссылка на репо](https://github.com/1c-syntax/sonar-bsl-plugin-community "Ссылка на репо"))
+5. Установлен RUSSIAN PACK (Локализация)
 
 ## Версии плагинов
 
@@ -38,6 +39,11 @@ sonarqube-community-branch-plugin - 1.8.0
 
 Для удачного развертывания необходимо не меньше 6гб сводобной памяти на хосте.
 Общий объем можно контролировать параметрами -Xmx и -Xms в compose
+
+## Общая информация
+1) Логин пароль для входа по-умолчанию ```admin:admin```
+2) Вход в сонар происходит по адресу ```http://localhost:32772``` *(порт по умолчанию из docker-compose)*
+3) Желательно поменять логин и пароль ```docker-compose``` с ```sonar:sonar``` на ваши новые (см environments ```POSTGRES_USER, POSTGRES_PASSWORD, SONARQUBE_JDBC_USERNAME, SONARQUBE_JDBC_PASSWORD```)
 
 ## Известные ошибки
 
