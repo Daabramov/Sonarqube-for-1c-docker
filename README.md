@@ -61,6 +61,7 @@ sonarqube-community-branch-plugin - 1.8.0
 ```wsl -d docker-desktop```
 
 ```sysctl -w vm.max_map_count=262144```
+
 ```sysctl -w fs.file-max=65536```
 
 - Выйти из терминала wsl
@@ -70,4 +71,4 @@ sonarqube-community-branch-plugin - 1.8.0
 При работе в Linux на хосте докера достаточно выполнить команду
 
 ```echo "vm.max_map_count=262144" >> /etc/sysctl.conf```
-```sysctl -w fs.file-max=65536```
+```echo "sysctl -w fs.file-max=65536" >> /etc/sysctl.conf```
