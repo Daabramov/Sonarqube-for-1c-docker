@@ -66,3 +66,7 @@ sonarqube-community-branch-plugin - 1.8.0
 - Выйти из терминала wsl
 
 - Перезапустить Docker Desktop
+
+При работе в Linux на хосте докера достаточно выполнить команду
+
+```echo "vm.max_map_count=262144" >> /etc/sysctl.conf```
