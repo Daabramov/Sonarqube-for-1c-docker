@@ -1,0 +1,27 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ master ]
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    
+    - name: Docker Login
+    - uses: docker/login-action@v1.10.0
+      with:
+        username: ${{ secrets.DOCKER_LOGIN }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+    
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: |
+        docker build . --file ./8.9-lts-community.Dockerfile --tag daabramov/8.9-lts-community
+        docker build . --file ./9-community.Dockerfile --tag daabramov/9-community
+        docker push daabramov/8.9-lts-community
+        docker push daabramov/9-community
+
