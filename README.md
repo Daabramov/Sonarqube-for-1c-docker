@@ -1,7 +1,7 @@
 # Sonarqube-for-1c-docker
 
-Dockerfile и docker compose для Sonarqube 8 под 1C-Enterprise
-Репозиторий содержит докерфайл для версии 8-community версии 8.9 LTS
+Dockerfile и docker compose для Sonarqube 8 и 9 под 1C-Enterprise
+Репозиторий содержит докерфайл для версии 8-community версии 8.9 LTS и 9-community
 
 
 ## Что изменено по сравнению с стандартной версией
@@ -16,11 +16,11 @@ Dockerfile и docker compose для Sonarqube 8 под 1C-Enterprise
 
 sonar-bsl-plugin-community - 1.9.0
 
-sonarqube-community-branch-plugin - 1.8.0
+sonarqube-community-branch-plugin - 1.8.0 (для 8.9) и 1.9.0 (для 9.0)
 
 ## Установка
 
-Самый простой способ установить через докер компоуз. Образ будет взят с хаба (8.9-lts-community)
+Самый простой способ установить через докер компоуз. Образ будет взят с хаба (8.9-lts-community или 9-community, надо исправить имя образа в docker-compose.yml)
 
 ```docker-compose up -d```
 
