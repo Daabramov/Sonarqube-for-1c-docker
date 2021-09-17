@@ -17,7 +17,9 @@ jobs:
         username: ${{ secrets.DOCKER_LOGIN }}
         password: ${{ secrets.DOCKER_PASSWORD }}
     
+    - name: checkout
     - uses: actions/checkout@v2
+    
     - name: Build the Docker image
       run: |
         docker build . --file ./8.9-lts-community.Dockerfile --tag daabramov/8.9-lts-community
