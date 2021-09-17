@@ -24,8 +24,8 @@ jobs:
       - 
         name: Build the Docker image
         run: |
-          docker build . --file ./8.9-lts-community.Dockerfile --tag daabramov/8.9-lts-community
-          docker build . --file ./9-community.Dockerfile --tag daabramov/9-community
-          docker push daabramov/8.9-lts-community
-          docker push daabramov/9-community
+          docker build . --file ./8.9-lts-community.Dockerfile --tag daabramov/sonarfor1c:8.9-lts-community
+          docker build . --file ./9-community.Dockerfile --tag daabramov/sonarfor1c:9-community
+          docker push daabramov/sonarfor1c:8.9-lts-community
+          docker push daabramov/sonarfor1c:9-community
 
