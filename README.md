@@ -1,3 +1,4 @@
+[![Docker Image CI](https://github.com/Daabramov/Sonarqube-for-1c-docker/actions/workflows/docker-image.yml/badge.svg?branch=master)](https://github.com/Daabramov/Sonarqube-for-1c-docker/actions/workflows/docker-image.yml)
 # Sonarqube-for-1c-docker
 
 Dockerfile и docker compose для Sonarqube 8 и 9 под 1C-Enterprise
