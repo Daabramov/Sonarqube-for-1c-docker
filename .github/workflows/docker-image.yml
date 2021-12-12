@@ -26,6 +26,8 @@ jobs:
         run: |
           docker build . --file ./8.9-lts-community.Dockerfile --tag daabramov/sonarfor1c:8.9-lts-community
           docker build . --file ./9.0.1-community.Dockerfile --tag daabramov/sonarfor1c:9.0.1-community
+          docker build . --file ./9.1-community.Dockerfile --tag daabramov/sonarfor1c:9.1-community
           docker push daabramov/sonarfor1c:8.9-lts-community
           docker push daabramov/sonarfor1c:9.0.1-community
+          docker push daabramov/sonarfor1c:9.1-community
 
