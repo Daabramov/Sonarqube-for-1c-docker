@@ -2,7 +2,7 @@
 # Sonarqube-for-1c-docker
 
 Dockerfile и docker compose для Sonarqube 8 и 9 под 1C-Enterprise
-Репозиторий содержит докерфайл для версии 8-community версии 8.9 LTS и 9-community
+Репозиторий содержит докерфайл для версии 8-community версии 8.9 LTS и 9.2-community
 
 
 ## Что изменено по сравнению с стандартной версией
@@ -17,11 +17,11 @@ Dockerfile и docker compose для Sonarqube 8 и 9 под 1C-Enterprise
 
 sonar-bsl-plugin-community - 1.10.0
 
-sonarqube-community-branch-plugin - 1.8.0 (для 8.9) и 1.9.0 (для 9.0)
+sonarqube-community-branch-plugin - 1.8.1 (для 8.9) и 1.10.0 (для 9.2)
 
 ## Установка
 
-Самый простой способ установить через докер компоуз. Образ будет взят с хаба (8.9-lts-community или 9-community, надо исправить имя образа в docker-compose.yml)
+Самый простой способ установить через докер компоуз. Образ будет взят с хаба (8.9-lts-community или 9.2-community, надо исправить имя образа в docker-compose.yml)
 
 ```docker-compose up -d```
 
@@ -30,9 +30,9 @@ sonarqube-community-branch-plugin - 1.8.0 (для 8.9) и 1.9.0 (для 9.0)
 1. Соберите свой докерфайл на основании текущего
 В шапке докерфайла можно указать необходимые вам версии sonarqube и плагинов.
 2. Соберите образ из вашего докерфайла на основании текущего.
-```docker image build -t mysonarimage -f .\8.9-lts-community.Dockerfile .```
+```docker image build -t mysonarimage -f .\9.2-lts-community.Dockerfile .```
 3. В docker-compose.yml заменить
-```image: daabramov/sonarfor1c:8.9-lts-community``` на ```image: mysonarimage```
+```image: daabramov/sonarfor1c:9.2-lts-community``` на ```image: mysonarimage```
 4. Запускаем через компоуз
 ```docker-compose up -d```
 
@@ -72,4 +72,5 @@ sonarqube-community-branch-plugin - 1.8.0 (для 8.9) и 1.9.0 (для 9.0)
 При работе в Linux на хосте докера достаточно выполнить команду
 
 ```echo "vm.max_map_count=262144" >> /etc/sysctl.conf```
+
 ```echo "sysctl -w fs.file-max=65536" >> /etc/sysctl.conf```
