@@ -48,6 +48,8 @@ sonarqube-community-branch-plugin - 1.8.1 (для 8.9) и 1.11.0 (для 9.4)
 
 ## Известные ошибки
 
+### Первый способ для Windows
+
 1. При работе Docker в ОС Windows на базе WSL2 при старте контейнера может появится ошибка:
 
 ```vm.max_map_count 65530 is too low```
@@ -69,6 +71,19 @@ sonarqube-community-branch-plugin - 1.8.1 (для 8.9) и 1.11.0 (для 9.4)
 
 - Перезапустить Docker Desktop
 
+### Второй способ для Windows
+
+```
+В каталоге пользователя %userprofile% ( C:\Users\<username>) создать файл .wslconfig со следующим содержимым:
+```
+
+```
+[wsl2]
+kernelCommandLine = "sysctl.vm.max_map_count=262144"
+```
+После перезагрузки все будет хорошо. 
+
+### Linux
 При работе в Linux на хосте докера достаточно выполнить команду
 
 ```echo "vm.max_map_count=262144" >> /etc/sysctl.conf```
