@@ -6,6 +6,9 @@ ARG BSL_PLUGIN_VERSION=1.11.0
 
 USER root
 
+# Фикс ошибки https://github.com/SonarSource/docker-sonarqube/issues/544
+RUN apk add --no-cache --upgrade "zlib>=1.2.12-r1"
+
 WORKDIR /opt/sonarqube
 
 # plugins
