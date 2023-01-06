@@ -3,6 +3,10 @@ name: Docker Image CI
 on:
   push:
     branches: [ master ]
+
+env:
+  SONAR_VERSION: "9.8-community"
+
 jobs:
 
   build:
@@ -24,8 +28,6 @@ jobs:
       - 
         name: Build the Docker image
         run: |
-          docker build . --file ./8.9-lts-community.Dockerfile --tag daabramov/sonarfor1c:8.9-lts-community
-          docker build . --file ./9.4-community.Dockerfile --tag daabramov/sonarfor1c:9.4-community
-          docker push daabramov/sonarfor1c:8.9-lts-community
-          docker push daabramov/sonarfor1c:9.4-community
+          docker build . --file ./9-community.Dockerfile --tag daabramov/sonarfor1c:$SONAR_VERSION
+          docker push daabramov/sonarfor1c:$SONAR_VERSION
 
