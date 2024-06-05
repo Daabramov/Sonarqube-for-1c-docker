@@ -13,7 +13,7 @@ Dockerfile и docker compose для Sonarqube 10 под 1C-Enterprise
 
 ## Версии плагинов
 
-sonar-bsl-plugin-community - 1.13.0
+sonar-bsl-plugin-community - 1.14.0
 
 sonarqube-community-branch-plugin - 1.18.0
 
@@ -34,9 +34,9 @@ sonar-l10n-ru - 10.3
 1. Соберите свой докерфайл на основании текущего
 В шапке докерфайла можно указать необходимые вам версии sonarqube и плагинов.
 1. Соберите образ из вашего докерфайла на основании текущего.
-```docker image build -t mysonarimage -f .\10.3-community.Dockerfile .```
+```docker image build -t mysonarimage -f .\10.4-community.Dockerfile .```
 1. В docker-compose.yml заменить
-```image: daabramov/sonarfor1c:10.3-community``` на ```image: mysonarimage```
+```image: daabramov/sonarfor1c:10.4-community``` на ```image: mysonarimage```
 1. Запускаем через компоуз
 ```docker-compose up -d```
 
