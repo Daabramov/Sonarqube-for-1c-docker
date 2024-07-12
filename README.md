@@ -13,11 +13,11 @@ Dockerfile и docker compose для Sonarqube 10 под 1C-Enterprise
 
 ## Версии плагинов
 
-sonar-bsl-plugin-community - 1.14.0
+sonar-bsl-plugin-community - 1.15.0
 
 sonarqube-community-branch-plugin - 1.18.0
 
-sonar-l10n-ru - 10.3
+sonar-l10n-ru - 10.4
 
 ## Обновление до 9.9 (ВАЖНО)
 
