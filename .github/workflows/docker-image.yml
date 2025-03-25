@@ -5,7 +5,7 @@ on:
     branches: [ master ]
 
 env:
-  SONAR_VERSION: "10.6-community"
+  SONAR_VERSION: "10.8-community"
 
 jobs:
 
