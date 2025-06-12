@@ -13,7 +13,7 @@ services:
       - postgresql_data:/var/lib/postgresql/data
   sonar:
     restart: always
-    image: daabramov/sonarfor1c:10.8-community
+    image: daabramov/sonarfor1c:25.5-community
     ports:
       - "32772:9000"
     depends_on:
