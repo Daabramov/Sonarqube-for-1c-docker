@@ -2,7 +2,7 @@ version: "2"
 services:
   postgresql:
     restart: always
-    image: postgres:11
+    image: postgres:17
     networks:
       - sonarnetwork
     environment:
