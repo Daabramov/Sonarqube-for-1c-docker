@@ -1,7 +1,7 @@
 [![Docker Image CI](https://github.com/Daabramov/Sonarqube-for-1c-docker/actions/workflows/docker-image.yml/badge.svg?branch=master)](https://github.com/Daabramov/Sonarqube-for-1c-docker/actions/workflows/docker-image.yml)
 # Sonarqube-for-1c-docker
 
-Dockerfile и docker compose для Sonarqube 26.1 под 1C-Enterprise
+Dockerfile и docker compose для Sonarqube 26.5 под 1C-Enterprise
 
 ## Что изменено по сравнению с стандартной версией
 
@@ -13,9 +13,9 @@ Dockerfile и docker compose для Sonarqube 26.1 под 1C-Enterprise
 
 ## Версии плагинов
 
-sonar-bsl-plugin-community - 1.17.2
+sonar-bsl-plugin-community - 1.18.1
 
-sonarqube-community-branch-plugin - 26.1.0
+sonarqube-community-branch-plugin - 26.5.0
 
 sonar-l10n-ru - 25.7
 
@@ -36,9 +36,9 @@ sonar-l10n-ru - 25.7
 1. Соберите свой докерфайл на основании текущего
 В шапке докерфайла можно указать необходимые вам версии sonarqube и плагинов.
 1. Соберите образ из вашего докерфайла на основании текущего.
-```docker image build -t mysonarimage -f .\26.1-community.Dockerfile .```
+```docker image build -t mysonarimage -f .\26.5-community.Dockerfile .```
 1. В docker-compose.yml заменить
-```image: daabramov/sonarfor1c:26.1-community``` на ```image: mysonarimage```
+```image: daabramov/sonarfor1c:26.5-community``` на ```image: mysonarimage```
 1. Запускаем через компоуз
 ```docker-compose up -d```
 
