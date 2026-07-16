@@ -34,13 +34,20 @@ services:
     volumes:
       - sonarqube_conf:/opt/sonarqube/conf
       - sonarqube_data:/opt/sonarqube/data
-      # - sonarqube_extensions:/opt/sonarqube/extensions
+      # Хранилище плагинов: переживает смену версии образа. Сюда можно и класть jar-ы руками,
+      # и сюда же сохраняются плагины, поставленные через Marketplace.
+      # Монтируйте чем удобнее - именованным томом или каталогом с хоста:
+      #   - ./plugins:/opt/sonarqube/extensions/custom-plugins
+      - sonarqube_plugins:/opt/sonarqube/extensions/custom-plugins
+      # Каталог /opt/sonarqube/extensions монтировать НЕЛЬЗЯ: он перекроет плагины из образа.
+      - sonarqube_downloads:/opt/sonarqube/extensions/downloads
 networks:
   sonarnetwork:
     driver: bridge
 volumes:
   sonarqube_conf:
   sonarqube_data:
-  sonarqube_extensions:
+  sonarqube_plugins:
+  sonarqube_downloads:
   postgresql:
   postgresql_data:
