@@ -10,7 +10,7 @@
 
 Поддерживать отдельный образ больше нет смысла:
 
-- **Branch-плагин** — автор [sonarqube-community-branch-plugin](https://github.com/mc1arke/sonarqube-community-branch-plugin) сам публикует готовый образ SonarQube с уже подключённым плагином: [`mc1arke/sonarqube-with-community-branch-plugin`](https://hub.docker.com/r/mc1arke/sonarqube-with-community-branch-plugin). Он выходит сразу после новых версий SonarQube и плагина.
+- **Branch-плагин** — автор [sonarqube-community-branch-plugin](https://github.com/mc1arke/sonarqube-community-branch-plugin) сам публикует готовый образ SonarQube с уже подключённым плагином: [`mc1arke/sonarqube-with-community-branch-plugin`](https://hub.docker.com/r/mc1arke/sonarqube-with-community-branch-plugin). Этот репозиторий и так собирался поверх него, поэтому новые версии всё равно зависели от его обновлений.
 - **Остальные плагины** (поддержка 1С/BSL — [sonar-bsl-plugin-community](https://github.com/1c-syntax/sonar-bsl-plugin-community), русская локализация) ставятся в пару кликов из встроенного **Marketplace** SonarQube.
 
 ### Что делать
